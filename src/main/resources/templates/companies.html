@@ -21,7 +21,10 @@ Companies Page | <a href="/addCompany">Add Company</a>
         <td th:text="${company.name}"></td>
         <td th:text="${company.size}"></td>
         <td th:text="${company.address}"></td>
-        <td><button> <a href="/deleteCompany">Delete</a></button></td>
+        <td>
+            <button><a th:href="@{/deleteCompany/{id}(id=${company.id})}" href="#">Delete</a></button>
+        </td>
+
     </tr>
 </table>
 </body>

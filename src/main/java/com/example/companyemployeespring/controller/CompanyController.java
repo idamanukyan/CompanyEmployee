@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Controller
@@ -36,14 +37,10 @@ public class CompanyController {
         return "redirect:/companies";
     }
 
-    @GetMapping("/deleteCompany")
-    public String deleteCompany() {
-        return "deleteCompany";
-    }
-
-    @PostMapping("/deleteCompany")
-    public String deleteCompanyPost(@PathVariable("id") int id) {
-        this.id = id;
+    @GetMapping("/deleteCompany/{id}")
+    @Transactional
+    public String deleteCompany(@PathVariable("id") int id) {
+        System.out.println(id);
         companyRepository.deleteById(id);
         return "redirect:/companies";
     }
