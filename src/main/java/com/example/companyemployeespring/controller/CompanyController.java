@@ -15,6 +15,7 @@ public class CompanyController {
 
     @Autowired
     private CompanyRepository companyRepository;
+    private int id;
 
     @GetMapping("/companies")
     public String companies(ModelMap modelMap) {
@@ -41,9 +42,9 @@ public class CompanyController {
     }
 
     @PostMapping("/deleteCompany")
-    public String deleteCompanyPost(@RequestParam("id") int id) {
-        Company company = companyRepository.getById(id);
-        companyRepository.delete(company);
+    public String deleteCompanyPost(@PathVariable("id") int id) {
+        this.id = id;
+        companyRepository.deleteById(id);
         return "redirect:/companies";
     }
 
