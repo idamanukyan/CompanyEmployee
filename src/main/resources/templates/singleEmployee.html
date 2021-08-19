@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<a href="/">Home</a> <br>
+Single Employee Page
+<span>Name</span> <span th:text="${employee.name}"></span><br>
+<span>Surname</span> <span th:text="${employee.surname}"></span><br>
+<span>Email</span> <span th:text="${employee.email}"></span><br>
+<span>Phone Number</span> <span th:text="${employee.phoneNumber}"></span><br>
+<span>Salary</span> <span th:text="${employee.salary}"></span><br>
+<span>Position</span> <span th:text="${employee.position}"></span><br>
+<span>Company name</span> <span th:text="${employee.company.name}"></span><br>
+<span>Company size</span> <span th:text="${employee.company.size}"></span><br>
+<span>Company address</span> <span th:text="${employee.company.address}"></span><br>
+</body>
+</html>

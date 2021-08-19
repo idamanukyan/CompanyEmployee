@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Company</title>
+</head>
+<body>
+<a href="/companies">Companies</a> | <a href="/">Home</a>
+
+<form action="/deleteCompany" method="post">
+    <input type="hidden" name="id" th:value="${company.id}">
+    <span>Company name</span> <span th:text="${company.name}"></span><br>
+    <span>Company size</span> <span th:text="${company.size}"></span><br>
+    <span>Company address</span> <span th:text="${company.address}"></span><br>
+    <input type="submit" value="Delete">
+
+</form>
+Company was removed.
+
+</body>
+</html>

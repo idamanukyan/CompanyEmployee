@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+</head>
+<body>
+<a href="/">Home</a><br>
+Add Employee Page | <a href="/employees">Employees page</a>
+
+<form action="/addEmployee" method="post">
+    <input type="text" name="name" placeholder="name"> <br>
+    <input type="text" name="surname" placeholder="surname"> <br>
+    <input type="text" name="email" placeholder="email"> <br>
+    <input type="text" name="phoneNumber" placeholder="phoneNumber"> <br>
+    <input type="text" name="salary" placeholder="salary"> <br>
+    <input type="text" name="position" placeholder="position"> <br>
+    Company: <select name="company.id">
+
+
+    <option th:each="company: ${companies}" th:text="${company.name}"
+            th:value="${company.id}"></option>
+</select>
+
+    <input type="submit" value="add employee">
+</form>
+</body>
+</html>
