@@ -2,31 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Employee</title>
+    <title>Edit Employee</title>
 </head>
 <body>
 <a href="/">Home</a><br>
-Add Employee Page | <a href="/employees">Employees page</a>
+Edit Employee | <a href="/employees">Employees page</a>
 
-<form th:action="@{/addEmployee}" th:object="${employee}" method="post">
-    <label>Name: <input type="text" th:field="*{name}" placeholder="name"/></label>
+<form th:action="@{/editEmployee/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+    <label>Name: <input type="text" th:field="*{name}"/></label>
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red;"></span><br>
-    <label>Surname: <input type="text" th:field="*{surname}" placeholder="surname"/></label>
+    <label>Surname: <input type="text" th:field="*{surname}"/></label>
     <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" style="color:red;"></span><br>
-    <label>Email: <input type="text" th:field="*{email}" placeholder="email"/></label>
+    <label>Email: <input type="text" th:field="*{email}"/></label>
     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red;"></span><br>
-    <label>Phone Number: <input type="text" th:field="*{phoneNumber}" placeholder="phoneNumber"/></label>
+    <label>Phone Number: <input type="text" th:field="*{phoneNumber}"/></label>
     <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" style="color:red;"></span><br>
-    <label>Salary: <input type="text" th:field="*{salary}" placeholder="salary"/></label>
+    <label>Salary: <input type="text" th:field="*{salary}"/></label>
     <span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}" style="color:red;"></span><br>
-    <label>Position: <input type="text" th:field="*{position}" placeholder="position"/></label>
+    <label>Position: <input type="text" th:field="*{position}"/></label>
     <span th:if="${#fields.hasErrors('position')}" th:errors="*{position}" style="color:red;"></span><br>
     Company: <select name="company.id">
         <option value="">-- Select Company --</option>
-        <option th:each="company : ${companies}" th:text="${company.name}"
-                th:value="${company.id}"></option>
+        <option th:each="c : ${companies}" th:text="${c.name}" th:value="${c.id}"
+                th:selected="${employee.company != null and employee.company.id == c.id}"></option>
     </select><br>
-    <input type="submit" value="Add Employee">
+    <input type="submit" value="Save">
 </form>
 </body>
 </html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+<a href="/">Home</a><br>
+<h1>Error</h1>
+<p>Status: <span th:text="${status}">Unknown</span></p>
+<p th:text="${error}">An error occurred.</p>
+<a href="/">Return to Home</a>
+</body>
+</html>

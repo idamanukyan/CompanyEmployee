@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Company Employee Manager</title>
 </head>
 <body>
+<h1>Company Employee Manager</h1>
 <a href="/companies">Companies</a> | <a href="/employees">Employees</a>
+<br><br>
+<form th:action="@{/logout}" method="post">
+    <button type="submit">Logout</button>
+</form>
 </body>
 </html>

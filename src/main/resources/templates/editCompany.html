@@ -2,21 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Company</title>
+    <title>Edit Company</title>
 </head>
 <body>
 <a href="/">Home</a><br>
 
-Add Company Page | <a href="/companies">Companies</a><br>
+Edit Company | <a href="/companies">Companies</a><br>
 
-<form th:action="@{/addCompany}" th:object="${company}" method="post">
-    <label>Name: <input type="text" th:field="*{name}" placeholder="name"/></label>
+<form th:action="@{/editCompany/{id}(id=${company.id})}" th:object="${company}" method="post">
+    <label>Name: <input type="text" th:field="*{name}"/></label>
     <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:red;"></span><br>
-    <label>Size: <input type="number" th:field="*{size}" placeholder="size"/></label>
+    <label>Size: <input type="number" th:field="*{size}"/></label>
     <span th:if="${#fields.hasErrors('size')}" th:errors="*{size}" style="color:red;"></span><br>
-    <label>Address: <input type="text" th:field="*{address}" placeholder="address"/></label>
+    <label>Address: <input type="text" th:field="*{address}"/></label>
     <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" style="color:red;"></span><br>
-    <input type="submit" value="Add">
+    <input type="submit" value="Save">
 </form>
 
 </body>
